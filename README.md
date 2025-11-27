@@ -1,6 +1,7 @@
 В каталоге build/libs лежит собранный jar файл проекта и файлы примеров матриц (file1-4.txt)
 
-Для запуска программы введите: java -jar Matrices.jar <pathToFirstFile> <pathToSecondFile>
+Для запуска программы введите в консоли: "java -jar Matrices.jar file1.txt file2.txt",
+где file1.txt и file2.txt - пути к файлам матриц.
 
 Для сборки проекта перейдите в корневой каталог и введите в консоли .\gradlew.bat build
 

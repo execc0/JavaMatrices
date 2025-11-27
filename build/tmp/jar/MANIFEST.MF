@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: rzsp.Matrices.Main
+Multi-Release: true
+

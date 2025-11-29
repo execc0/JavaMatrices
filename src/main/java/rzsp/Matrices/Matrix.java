@@ -167,6 +167,8 @@ public class Matrix {
     }
     /**
      * Проверяет, совпадают ли размеры двух матриц
+     * @param matrix матрица, с которой выполняется сравнение
+     * @return true если размеры совпадают, иначе false
      */
     public boolean isSameSize(Matrix matrix) {
         return (this.rowsNum() == matrix.rowsNum()) && (this.colsNum() == matrix.colsNum());

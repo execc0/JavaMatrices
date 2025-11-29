@@ -3,7 +3,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Scanner;
 
-
+/**
+ * Класс с реализацией консольного приложения
+ */
 public class Main {
     /**
      * Основной метод программы, предлагает пользователю выбрать одну из операций над матрицами,

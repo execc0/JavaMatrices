@@ -7,14 +7,16 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;   
+import java.util.List;
+import java.util.Locale;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
@@ -147,8 +149,10 @@ public class Matrix {
      * Выводит матрицу в консоль
      */
     public void print() {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat roundToTenDigits = new DecimalFormat("#0.##########", symbols);
         IntStream.range(0, this.rowsNum()).forEach(i -> {
-            IntStream.range(0, this.colsNum()).forEach(j -> System.out.print(this.getVal(i, j) + " "));
+            IntStream.range(0, this.colsNum()).forEach(j -> System.out.print(Double.parseDouble(roundToTenDigits.format(this.getVal(i, j)))+ " "));
             System.out.println();
         });
     }
@@ -296,9 +300,10 @@ public class Matrix {
                 .reduce((a, b) -> a * b)
                 .getAsDouble();
         determinant *= sign;
-        BigDecimal determinantRounding = new BigDecimal(determinant);
-        determinantRounding = determinantRounding.setScale(10, RoundingMode.HALF_UP);
-        double determinantRounded = determinantRounding.doubleValue();
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat roundToTenDigits = new DecimalFormat("#0.##########", symbols);
+        roundToTenDigits.setRoundingMode(RoundingMode.HALF_UP);
+        double determinantRounded = Double.parseDouble(roundToTenDigits.format(determinant));
         logger.info("Вычислен определитель для матрицы {}, результат равен {}", resultMatrix.matrix, determinant);
         return determinantRounded;
     }

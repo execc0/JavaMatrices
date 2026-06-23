@@ -61,7 +61,9 @@ java -jar Matrices.jar file1.txt file2.txt
 
 ## Документация
 
-Javadoc-документация в формате HTML находится в каталоге `docs`.
+Javadoc-документация в формате HTML находится в каталоге `docs`
+
+Ссылка на документацию - https://execc0.github.io/JavaMatrices/
 
 ## Логирование
 
